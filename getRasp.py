@@ -7,7 +7,7 @@ import datetime
 sense = SenseHat()
 
 # Firebase Realtime Database URL 설정
-FIREBASE_URL = 'https://commonpjt-fd9ed.firebaseapp.com/박승채.json'
+FIREBASE_URL = 'https://commonpjt-fd9ed-default-rtdb.asia-southeast1.firebasedatabase.app/박승채.json'
 
 while True:
     temp = sense.get_temperature()          
