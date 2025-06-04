@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>로그인</title>
+  <title>센서 데이터</title>
   <style>
     body {
       background: #f5f6fa;
@@ -22,7 +22,7 @@
       border-radius: 24px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.07);
     }
-    .login-title {
+    .data-title {
       font-size: 2rem;
       font-weight: bold;
       margin-bottom: 24px;
@@ -30,65 +30,71 @@
       letter-spacing: 2px;
       text-align: center;
     }
-    #loginForm {
+    .sensor-list {
       background: #fff;
       padding: 32px 28px;
       border-radius: 24px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+      min-width: 320px;
+      max-width: 90vw;
+      margin-bottom: 40px;
       display: flex;
       flex-direction: column;
       gap: 18px;
-      min-width: 320px;
-      max-width: 90vw;
-      align-items: stretch;
     }
-    #loginForm label {
-      font-size: 1rem;
-      margin-bottom: 6px;
-      color: #555;
+    .sensor-item {
+      border-bottom: 1px solid #e3e8f0;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
     }
-    #loginForm input {
-      padding: 12px;
-      border: 1px solid #d1d8e4;
-      border-radius: 12px;
-      font-size: 1rem;
-      outline: none;
-      transition: border 0.2s;
-      margin-bottom: 8px;
+    .sensor-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
-    #loginForm input:focus {
-      border: 1.5px solid #4f8cff;
-      background: #f0f6ff;
-    }
-    #loginForm button {
-      margin-top: 12px;
-      padding: 12px 0;
-      background: linear-gradient(90deg, #4f8cff 60%, #38c6ff 100%);
-      color: #fff;
-      font-size: 1.1rem;
+    .sensor-label {
       font-weight: bold;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(79,140,255,0.08);
-      transition: background 0.2s;
+      color: #4f8cff;
+      margin-right: 8px;
     }
-    #loginForm button:hover {
-      background: linear-gradient(90deg, #38c6ff 60%, #4f8cff 100%);
+    .timestamp {
+      color: #888;
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+    .sensehat-matrix {
+      display: grid;
+      grid-template-columns: repeat(8, 24px);
+      grid-template-rows: repeat(8, 24px);
+      gap: 2px;
+      background: #bbb;
+      border-radius: 8px;
+      margin: 32px 0 16px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      width: max-content;
+    }
+    .sensehat-dot {
+      width: 24px;
+      height: 24px;
+      background: #ddd;
+      border-radius: 4px;
+      transition: background 0.1s;
+    }
+    .sensehat-dot.on {
+      background: #2196f3;
     }
   </style>
   <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-  <script src="script.js"></script>
+  <script type="module" src="script2.js"></script>
 </head>
 <body>
-  <img src="icon.png" alt="로고" class="logo">
-  <div class="login-title">로그인</div>
-  <form id="loginForm">
-    <label for="email">이메일:</label>
-    <input type="email" id="email" name="email" required>
-    <label for="password">비밀번호:</label>
-    <input type="password" id="password" name="password" required>
-    <button type="submit">확인</button>
+  <div class="data-title">센서 데이터</div>
+  <div class="sensor-list" id="sensorList">
+    <!-- 센서 데이터가 여기에 표시됩니다 -->
+  </div>
+  <form id="messageForm" style="margin-top:32px; display:flex; gap:8px;">
+    <input type="text" id="messageInput" placeholder="메시지를 입력하세요" style="padding:10px; border-radius:8px; border:1px solid #ccc; width:220px;">
+    <button type="submit" style="padding:10px 18px; border-radius:8px; border:none; background:#4f8cff; color:#fff; font-weight:bold;">전송</button>
   </form>
 </body>
 </html>
