@@ -4,85 +4,98 @@
   <meta charset="UTF-8">
   <title>센서 데이터</title>
   <style>
-    body {
-      background: #f5f6fa;
-      font-family: 'Segoe UI', 'Malgun Gothic', Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0;
-      min-height: 100vh;
-    }
-    .logo {
-      width: 60vw;
-      max-width: 400px;
-      margin-top: 40px;
-      margin-bottom: 24px;
-      display: block;
-      border-radius: 24px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-    }
-    .data-title {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 24px;
-      color: #222;
-      letter-spacing: 2px;
-      text-align: center;
-    }
-    .sensor-list {
-      background: #fff;
-      padding: 32px 28px;
-      border-radius: 24px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.09);
-      min-width: 320px;
-      max-width: 90vw;
-      margin-bottom: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-    .sensor-item {
-      border-bottom: 1px solid #e3e8f0;
-      padding-bottom: 12px;
-      margin-bottom: 12px;
-    }
-    .sensor-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    .sensor-label {
-      font-weight: bold;
-      color: #4f8cff;
-      margin-right: 8px;
-    }
-    .timestamp {
-      color: #888;
-      font-size: 0.95rem;
-      margin-top: 4px;
-    }
-    .sensehat-matrix {
-      display: grid;
-      grid-template-columns: repeat(8, 24px);
-      grid-template-rows: repeat(8, 24px);
-      gap: 2px;
-      background: #bbb;
-      border-radius: 8px;
-      margin: 32px 0 16px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      width: max-content;
-    }
-    .sensehat-dot {
-      width: 24px;
-      height: 24px;
-      background: #ddd;
-      border-radius: 4px;
-      transition: background 0.1s;
-    }
-    .sensehat-dot.on {
-      background: #2196f3;
-    }
+body {
+  background: #f5f6fa;
+  font-family: 'Segoe UI', 'Malgun Gothic', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  min-height: 100vh;
+}
+.data-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  margin: 48px 0 32px 0;
+  color: #2563eb;
+  letter-spacing: 2.5px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(79,140,255,0.08);
+}
+.sensor-list {
+  background: #fff;
+  padding: 40px 40px 32px 40px;
+  border-radius: 28px;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.10);
+  min-width: 400px;
+  max-width: 700px;
+  width: 90vw;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: box-shadow 0.2s;
+}
+.sensor-list:hover {
+  box-shadow: 0 12px 40px rgba(79,140,255,0.13);
+}
+.sensor-item {
+  border-bottom: 1px solid #e3e8f0;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  background: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.04);
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: background 0.2s;
+}
+.sensor-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.sensor-label {
+  font-weight: bold;
+  color: #4f8cff;
+  margin-right: 8px;
+  font-size: 1.05em;
+}
+.timestamp {
+  color: #888;
+  font-size: 0.97rem;
+  margin-top: 8px;
+  text-align: right;
+}
+pre {
+  background: #f1f5fa;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1em;
+  overflow-x: auto;
+  margin: 0;
+}
+.sensehat-matrix {
+  display: grid;
+  grid-template-columns: repeat(8, 28px);
+  grid-template-rows: repeat(8, 28px);
+  gap: 3px;
+  background: #bbb;
+  border-radius: 10px;
+  margin: 32px 0 16px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  width: max-content;
+}
+.sensehat-dot {
+  width: 28px;
+  height: 28px;
+  background: #e0e7ef;
+  border-radius: 6px;
+  transition: background 0.1s;
+}
+.sensehat-dot.on {
+  background: #2196f3;
+}
   </style>
   <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
   <script type="module" src="script2.js"></script>

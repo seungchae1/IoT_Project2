@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
             refTitle.textContent = `${key}`;
             sensorList.appendChild(refTitle);
 
-            // info와 sensehat 데이터가 있는 경우 예쁘게 출력
             if (value.info && value.sensehat) {
                 const sense = value.sensehat;
                 const info = value.info;
@@ -45,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         <span class="sensor-label">학번</span> ${info.학번}
                     </div>
                     <div>
-                        <span class="sensor-label">온도</span> ${sense.temperature?.temperature ?? '-'} ℃
-                        <span class="sensor-label">습도</span> ${sense.humidity?.humidity ?? '-'} %
-                        <span class="sensor-label">기압</span> ${sense.pressure?.pressure ?? '-'} hPa
+                        <span class="sensor-label">온도</span> ${sense.temperature ?? '-'} ℃
+                        <span class="sensor-label">습도</span> ${sense.humidity ?? '-'} %
+                        <span class="sensor-label">기압</span> ${sense.pressure ?? '-'} hPa
                     </div>
                     <div>
                         <span class="sensor-label">가속도</span>
