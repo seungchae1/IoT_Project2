@@ -46,10 +46,10 @@ while True:
                 'y': round(orientation['pitch'], 4),
                 'z': round(orientation['yaw'], 4)
             },
-            "humidity": {'humidity': round(humidity, 4)},
-            "pressure": {'pressure': round(pressure, 4)},
-            "temperature": {'temperature': round(temp, 4)},
-            "timestamp": {'timestamp': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+            "humidity": round(humidity, 4),
+            "pressure":round(pressure, 4),
+            "temperature": round(temp, 4),
+            "timestamp": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         }
     }
     try:
